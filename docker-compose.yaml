@@ -1,0 +1,37 @@
+# /home/epic/docker-compose.yaml
+version: "3.7"
+services:
+
+  v2rss-node:
+    image: ech0sec/awesome-epic:daddy
+    command: [ "python3","main.py","claim" ]
+    volumes:
+      - "/home/epic/database/:/home/epic/database/"
+    environment:
+      EPΙC_EMAΙL: # 填入你的账号信息
+      EPΙC_PASSWΟRD: # 填入你的账号信息
+      PUSHER_TELEGRAM: # (optional) Apprise 消息推送，不填或填错则不发送
+      PLAYER: # (optional) 指定昵称，覆盖敏感信息，不填则使用内置算法生成
+
+# ======================================
+# [🍜] 镜像简述
+# ======================================
+# ech0sec/awesome-epic:daddy
+# 1. 内置 google-chrome 以及 yolov5n6(onnx) model
+# 2. 以你喜欢的方式配置环境变量，开箱即用
+# 3. 修改 command 第三个参数，调用不同的脚手架指令
+
+# ======================================
+# [🍜] 脚手架指令速记
+# ======================================
+# test      | 检测服务心跳
+# claim     | 认领游戏商城周免游戏及其免费DLC
+# unreal    | 认领虚幻商城月免内容
+# deploy    | 部署系统定时任务
+# get       | 搬空游戏商城的免费游戏或免费DLC
+
+# ======================================
+# [🍜] 相关文档
+# ======================================
+# docker-compose https://docs.docker.com/compose/reference/
+# apprise https://github.com/caronc/apprise
